@@ -1,8 +1,11 @@
 # Synth Memcache Bundle
 
-A simple implementation of memcache for use with plain PHP. Not for use with Doctrine (there are much better versions of that elsewhere!).
+A simple implementation of memcache for use with plain PHP. Not for use with Doctrine (there are
+much better versions of that elsewhere!).
 
-Very much a work in progress! Feel free to fork and fix as you see fit =)
+Initial code taken from the [Clock](http://www.clock.co.uk)
+[Atrox3 Framework](https://github.com/PabloSerbo/Atrox3). Very much a work in progress! Feel free
+to fork and fix as you see fit =)
 
 ## Installation
 
