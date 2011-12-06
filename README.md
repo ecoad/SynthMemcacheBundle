@@ -43,9 +43,8 @@ Finally, make sure that the `SynthMemcacheBundle` is registered in the applicati
 ...
 
 ## Credits
-
-[Paul Serby](https://github.com/PabloSerbo/) of [Clock](http://www.clock.co.uk)
-[Dom Udall](https://github.com/dmno/)
+* [Paul Serby](https://github.com/PabloSerbo/) of [Clock](http://www.clock.co.uk)
+* [Dom Udall](https://github.com/dmno/)
 
 ## Licence
 Licenced under the [New BSD License](http://opensource.org/licenses/bsd-license.php)
