@@ -1,0 +1,15 @@
+phpunit.xml
+Tests/autoload.php
+Coverage
+
+vendor/doctrine
+vendor/doctrine-common
+vendor/doctrine-dbal
+vendor/symfony
+vendor/swiftmailer
+
+## Eclipse specific
+
+.buildpath
+.project
+.settings
