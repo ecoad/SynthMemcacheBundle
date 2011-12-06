@@ -267,7 +267,4 @@ class MemcachedManager
                 }
             }
         }
-        sort($list);
-        return $list;
-    }
-}
+        sort($list

@@ -1,7 +1,7 @@
 parameters:
-    synth_memcached.manager: Synth\MemcachedBundle\Model\MemcachedManager
+    synth_memcache.manager: Synth\MemcacheBundle\Model\MemcacheManager
 
 services:
-    synth_memcached:
-        class: %synth_memcached.manager%
-        arguments: [%synth_memcached.memcached_class%, %synth_memcached.servers%, %synth_memcached.key_prefix%]
+    synth_memcache:
+        class: %synth_memcache.manager%
+        arguments: [%synth_memcache.memcache_class%, %synth_memcache.servers%, %synth_memcache.key_prefix%]
