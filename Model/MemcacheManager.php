@@ -91,10 +91,9 @@ class MemcachedManager
     }
 
     /**
-     *
      * @param string $server
      * @param int $port
-     * @return Atrox_Core_Cache_memcache
+     * @param int $weight
      */
     public function addServer($server = "127.0.0.1", $port = 11211, $weight = null) {
         $this->memcached->addServer($server, $port, $weight);
@@ -103,7 +102,10 @@ class MemcachedManager
     }
 
     /**
-     *
+     * @param string $key
+     * @param mixed $data
+     * @param mixed $tags
+     * @param int $expire
      */
     public function set($key, $data, $tags = false, $expire = false) {
         $this->memcached->set($this->keyPrefix . $key, $data, false, $expire);
@@ -125,24 +127,25 @@ class MemcachedManager
     }
 
     /**
-     * (non-PHPdoc)
-     * @see Atrox/Core/Cache/Atrox_Core_Cache_ICache#get($key)
+     * @param string $key
      */
     public function get($key) {
         return $this->memcached->get($this->keyPrefix . $key);
     }
 
     /**
-     * (non-PHPdoc)
-     * @see Atrox/Core/Cache/Atrox_Core_Cache_ICache#get($key)
+     * @param string $key
      */
     public function getWithoutPrefix($key) {
         return $this->memcached->get($key);
     }
 
     /**
-     * (non-PHPdoc)
-     * @see Atrox/Core/Cache/Atrox_Core_Cache_ICache#start($key, $tag)
+     * @param string $key
+     * @param mixed $tags
+     * @param int $expire
+     *
+     * @return bool
      */
     public function start($key, $tag = false, $expire = false) {
         if ($content = $this->memcached->get($this->keyPrefix . $key)) {
@@ -156,8 +159,8 @@ class MemcachedManager
     }
 
     /**
-     *
      * @param $buffer
+     *
      * @return unknown_type
      */
     public function writeOutputBufferToCache($buffer) {
@@ -167,8 +170,7 @@ class MemcachedManager
     }
 
     /**
-     * (non-PHPdoc)
-     * @see Atrox/Core/Cache/Atrox_Core_Cache_ICache#end()
+     * @param bool $flush
      */
     public function end($flush = true) {
         if ($flush) {
@@ -179,8 +181,6 @@ class MemcachedManager
     }
 
     /**
-     * (non-PHPdoc)
-     * @see Atrox/Core/Cache/Atrox_Core_Cache_ICache#clearAll()
      */
     public function clearAll() {
         $this->incrementNamespaceValue();
@@ -188,24 +188,21 @@ class MemcachedManager
     }
 
     /**
-     * (non-PHPdoc)
-     * @see Atrox/Core/Cache/Atrox_Core_Cache_ICache#clear($key)
+     * @param string $key
      */
     public function clear($key) {
         $this->memcached->delete($this->keyPrefix . $key);
     }
 
     /**
-     * (non-PHPdoc)
-     * @see Atrox/Core/Cache/Atrox_Core_Cache_ICache#get($key)
+     * @param string $key
      */
     public function clearWithoutPrefix($key) {
         $this->memcached->delete($key);
     }
 
     /**
-     * (non-PHPdoc)
-     * @see Atrox/Core/Cache/Atrox_Core_Cache_ICache#clearTag($tag)
+     * @param string $tag
      */
     public function clearTag($tag) {
         if ($tagIndex = $this->memcached->get($this->keyPrefix . "__AtroxTagIndex")) {
@@ -223,8 +220,9 @@ class MemcachedManager
     }
 
     /**
-     * (non-PHPdoc)
-     * @see Atrox/Core/Cache/Atrox_Core_Cache_ICache#getFileContents($filename, $expire, $context)
+     * @param string $filename
+     * @param int $expire
+     * @param resource $context
      */
     public function getFileContents($filename, $expire = false, $context = null) {
         $key = $this->keyPrefix . "__File:" . md5($filename);
@@ -243,8 +241,7 @@ class MemcachedManager
     }
 
     /**
-     * (non-PHPdoc)
-     * @see Atrox/Core/Cache/Atrox_Core_Cache_ICache#clearFileContents($filename)
+     * @param string $filename
      */
     public function clearFileContents($filename) {
         $key = "__File:" . md5($filename);
