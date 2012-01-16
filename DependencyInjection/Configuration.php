@@ -1,6 +1,6 @@
 <?php
 
-namespace Synth\MemcacheBundle\DependencyInjection;
+namespace Synth\MemcachedBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,12 +18,12 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('synth_memcache');
+        $rootNode = $treeBuilder->root('synth_memcached');
 
         $rootNode->children()
-            ->scalarNode('memcache_class')
+            ->scalarNode('memcached_class')
                 ->cannotBeEmpty()
-                ->defaultValue("\Memcache")
+                ->defaultValue("\Memcached")
                 ->end()
             ->scalarNode('key_prefix')
                 ->defaultValue("")
