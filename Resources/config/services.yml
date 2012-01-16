@@ -1,5 +1,5 @@
 parameters:
-    synth_memcached.manager: Synth\MemcacheBundle\Model\MemcacheManager
+    synth_memcached.manager: Synth\MemcachedBundle\Model\MemcachedManager
 
 services:
     synth_memcached:

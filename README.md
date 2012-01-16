@@ -11,9 +11,9 @@ free to fork and fix as you see fit =)
 
 Update your `deps` file, and add the following lines:
 
-    [SynthMemcacheBundle]
-        git=http://github.com/synthmedia/SynthMemcacheBundle.git
-        target=/bundles/Synth/MemcacheBundle
+    [SynthMemcachedBundle]
+        git=http://github.com/synthmedia/SynthMemcachedBundle.git
+        target=/bundles/Synth/MemcachedBundle
 
 After that, just install the new dependencies:
 
@@ -27,14 +27,14 @@ Register the bundle namespace in the autoloader (if you haven't already):
         'Synth'       => __DIR__.'/../vendor/bundles',
     ));
 
-Finally, make sure that the `SynthMemcacheBundle` is registered in the application kernel:
+Finally, make sure that the `SynthMemcachedBundle` is registered in the application kernel:
 
     // app/AppKernel.php
     public function registerBundles()
     {
         return array(
             // ...
-            new Synth\MemcacheBundle\SynthMemcacheBundle(),
+            new Synth\MemcachedBundle\SynthMemcachedBundle(),
         );
     }
 
