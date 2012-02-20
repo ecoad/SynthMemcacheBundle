@@ -50,6 +50,8 @@ class NoCache {
         }
     }
 
+    public function increment($key) { }
+
     public function clearAll() { }
 
     public function clear($key) {
